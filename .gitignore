@@ -1,0 +1,3 @@
+# Project exclude paths
+/verifier-processing/target/
+/verifier-user/target/
