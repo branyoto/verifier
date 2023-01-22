@@ -1,8 +1,6 @@
 package fr.crowy.annotation.processor;
 
 import com.google.auto.service.AutoService;
-import fr.crowy.annotation.processor.verification.Positive;
-import fr.crowy.annotation.processor.verification.Verified;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Processor;
@@ -15,20 +13,15 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.ExecutableType;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @SupportedAnnotationTypes("fr.crowy.annotation.processor.verification.Verified")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
 @AutoService(Processor.class)
 public class VerifiedProcessor extends AbstractProcessor {
     private static final Map<ElementKind, Consumer<List<? extends Element>>> processors = Map.of(

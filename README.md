@@ -68,6 +68,8 @@ The rules are simple :
         - use @NotVerified on the field/parameter `void function(@NotVerified VerifiedType notVerifiedParam)`
         - add the parameter `auto=false` to the annotation of the enclosing method/constructor/class/record.
           Ex: `@Verified(auto=false) void function(VerifiedType notVerifiedParam)`
+- The annotation ensure that every field/parameter that doesn't pass verification is added to the given Accumulator (to
+  be thrown or whatever you want)
 
 Exemples :
 
@@ -88,8 +90,20 @@ class ExempleClass {
 During compilation :
 
 - The classes/records annotated with @Verified implement Verifiable
-    - The method verify is implemented using Verification#and() and every field annotated with a verification and every field that is a type annotated with @Verified
-      - Except if annotated with @NotVerified or if the enclosing element has auto verification disabled
+    - The method verify is implemented using Verification#and() and every field annotated with a verification and every
+      field that is a type annotated with @Verified
+        - Except if annotated with @NotVerified or if the enclosing element has auto verification disabled
+
+You can trigger manually the verification on a class/record that is annotated with @Verified by using the
+function `Verification#verify(Verifiable, Class<? extends Accumulator>)`
+
+## Accumulator
+
+The accumulator is an interface used to group failed verifications
+
+To implement your custom Accumulator you will need to define a method to accumulate values, a method to call at the end
+of the verification and a method that return the current accumulator with a prefix (useful with collection of elements
+or nested verification)
 
 # Disclaimer
 
