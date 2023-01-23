@@ -1,6 +1,10 @@
 # Project
 
-This project is a WIP.
+This project is a trash.
+
+Because the java processor doesn't allows you to edit file with annotations, the core feature of this project is broken.
+
+# If you want to read more for no reason
 
 This project is designed to be a simpler way to use annotation to ensure fields validation than jakarta.
 
@@ -8,7 +12,7 @@ This may have been already done by someone but the pleasure to implement myself 
 
 Everything done here is new to me and **will never** be 100% completed nor reliable.
 
-# Implementation
+## Implementation
 
 The verification is only done during a method call.
 
@@ -97,7 +101,7 @@ During compilation :
 You can trigger manually the verification on a class/record that is annotated with @Verified by using the
 function `Verification#verify(Verifiable, Class<? extends Accumulator>)`
 
-## Accumulator
+### Accumulator
 
 The accumulator is an interface used to group failed verifications
 
@@ -105,10 +109,10 @@ To implement your custom Accumulator you will need to define a method to accumul
 of the verification and a method that return the current accumulator with a prefix (useful with collection of elements
 or nested verification)
 
-# Disclaimer
+## Disclaimer
 
 The annotation cannot be used for return type/value
 
-# Ref
+## Ref
 
 Annotation tutorial : https://www.baeldung.com/java-annotation-processing-builder
